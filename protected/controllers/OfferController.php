@@ -581,22 +581,45 @@ class OfferController extends Controller
 			$serie_him = Offer::model()->findAllByAttributes(array("OFR_NEG_ID"=>$negotiation->NEG_ID , "OFR_NAD_USR_ID"=>$negotiation->NEG_USR1));
 			$serie_his_name = $negotiation->negotiator_1->USR_NAZWA;
 		}
-	
+		
+		$compromise_offer = null;
+		$last_me_point = "";
+		$last_him_point = "";
+		
 		$serie_me_string = "";
 		foreach($serie_me as $key=>$detail){
 			if ($detail->OFR_SCORE_NAD == null) continue;
 			$datetime = strtotime($detail->OFR_DATETIME);
-			$serie_me_string .= "[Date.UTC(".date('Y', $datetime).",  ".(date('m', $datetime)-1).", ".date('d', $datetime).
+			$last_me_point = "[Date.UTC(".date('Y', $datetime).",  ".(date('m', $datetime)-1).", ".date('d', $datetime).
 			", ".date('H', $datetime).", ".date('i', $datetime).", ".date('s', $datetime).
 			"), ".$detail->OFR_SCORE_NAD."   ], ";
+			$serie_me_string .= $last_me_point;
+			
+			if ($detail->OFR_COMPROMISE > 0) 
+			{		
+				$compromise_offer = $detail;
+			}
 		}
 		$serie_him_string = "";
 		foreach($serie_him as $key=>$detail){
 			if ($detail->OFR_SCORE_REC == null) continue;
 			$datetime = strtotime($detail->OFR_DATETIME);
-			$serie_him_string .= "[Date.UTC(".date('Y', $datetime).",  ".(date('m', $datetime)-1).", ".date('d', $datetime).
+			$last_him_point = "[Date.UTC(".date('Y', $datetime).",  ".(date('m', $datetime)-1).", ".date('d', $datetime).
 			", ".date('H', $datetime).", ".date('i', $datetime).", ".date('s', $datetime).
 			"), ".$detail->OFR_SCORE_REC."   ], ";
+			$serie_him_string .= $last_him_point;
+			
+			if ($detail->OFR_COMPROMISE > 0) 
+			{		
+				$compromise_offer = $detail;
+			}
+		}
+		
+		if ($compromise_offer != null)
+		{
+			$serie_compromise_string .= $last_me_point;
+			$serie_compromise_string .= $last_him_point;
+			$serie_compromise_color = Yii::app()->user->id == $compromise_offer->OFR_NAD_USR_ID ? "#76ac74" : "#689a84";
 		}
 		
 	
@@ -615,6 +638,8 @@ class OfferController extends Controller
 			'serie_usr2'=>$serie_him_string,
 			'serie_usr1_name'=>$serie_my_name,
 			'serie_usr2_name'=>$serie_his_name,
+			'serie_compromise'=>$serie_compromise_string,
+			'serie_compromise_color'=>$serie_compromise_color
 		));
 	}
 	

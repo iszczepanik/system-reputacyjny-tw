@@ -82,6 +82,18 @@ if ($canRespond){
 						}
 					},
 					series: [{
+						name: 'compromise',
+						color: '<?echo $serie_compromise_color;?>',
+						dashStyle: 'ShortDash',
+						marker: {
+							symbol: 'circle'
+						},
+						data: [
+							<?
+							echo $serie_compromise;
+							?>
+						]
+					}, {
 						name: '<?echo $serie_usr1_name;?>',
 						color: '#4673a7',
 						marker: {
@@ -90,12 +102,6 @@ if ($canRespond){
 						data: [
 							<?
 							echo $serie_usr1;
-							// foreach($serie_usr1 as $key=>$detail){
-								// if ($detail->OFR_SCORE == null) continue;
-								// $datetime = strtotime($detail->OFR_DATETIME);
-								// echo "[Date.UTC(".date('Y', $datetime).",  ".date('m', $datetime).", ".date('d', $datetime).", ".
-								// date('H', $datetime).", ".date('i', $datetime).", ".date('s', $datetime)."), ".$detail->OFR_SCORE."   ], ";
-							// }
 							?>
 						]
 					}, {
@@ -107,12 +113,6 @@ if ($canRespond){
 						data: [
 							<?
 							echo $serie_usr2;
-							// foreach($serie_usr2 as $key=>$detail){
-								// if ($detail->OFR_SCORE == null) continue;
-								// $datetime = strtotime($detail->OFR_DATETIME);
-								// echo "[Date.UTC(".date('Y', $datetime).",  ".date('m', $datetime).", ".date('d', $datetime).", ".
-								// date('H', $datetime).", ".date('i', $datetime).", ".date('s', $datetime)."), ".$detail->OFR_SCORE."   ], ";
-							// }
 							?>
 						]
 					}]

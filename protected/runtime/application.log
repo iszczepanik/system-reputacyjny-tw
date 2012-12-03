@@ -3844,3 +3844,23 @@ in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
 in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
 in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
 in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2012/12/03 17:53:15 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (78)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2012/12/03 17:55:54 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2012/12/03 17:56:39 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (78)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2012/12/03 17:58:11 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2012/12/03 18:37:28 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
