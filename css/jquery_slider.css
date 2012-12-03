@@ -1,0 +1,42 @@
+.ui-slider .ui-slider-handle {
+	Z-INDEX: 2; POSITION: absolute; WIDTH: 1.2em; HEIGHT: 1.2em; CURSOR: default;
+	width: 11px; height: 16px;
+	border: 0;
+	BACKGROUND: url('handler.png');
+}
+.ui-slider .ui-slider-range {
+	Z-INDEX: 1; BORDER-BOTTOM: 0px; POSITION: absolute; BORDER-LEFT: 0px; DISPLAY: block; BACKGROUND-POSITION: 0px 0px; FONT-SIZE: 0.7em; BORDER-TOP: 0px; BORDER-RIGHT: 0px;
+	border-color: #a6c9e2;
+}
+.ui-slider-horizontal {
+	HEIGHT: 0.8em;
+	height: 3px;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	MARGIN-LEFT: -0.3em; TOP: -0.4em;
+	/*border: 1px solid #db8e00;*/
+}
+.ui-widget-content {
+	BORDER-BOTTOM: #aaaaaa 1px solid; BORDER-LEFT: #aaaaaa 1px solid; BACKGROUND: url(images/ui-bg_flat_75_ffffff_40x100.png) #ffffff repeat-x 50% 50%; COLOR: #222222; BORDER-TOP: #aaaaaa 1px solid; BORDER-RIGHT: #aaaaaa 1px solid;
+	border-color: #00578d; background-color: #a6c9e2;
+}
+.ui-widget-content .ui-state-default {
+	BORDER-BOTTOM: #d3d3d3 1px solid; BORDER-LEFT: #d3d3d3 1px solid;  COLOR: #555555; BORDER-TOP: #d3d3d3 1px solid; FONT-WEIGHT: normal; BORDER-RIGHT: #d3d3d3 1px solid;
+
+	border: 0;
+	background: #ffe1a1;
+	BACKGROUND: url('handler.png')
+}
+.ui-widget-header .ui-state-default {
+	BORDER-BOTTOM: #d3d3d3 1px solid; BORDER-LEFT: #d3d3d3 1px solid; BACKGROUND: url(images/ui-bg_glass_75_e6e6e6_1x400.png) #e6e6e6 repeat-x 50% 50%; COLOR: #555555; BORDER-TOP: #d3d3d3 1px solid; FONT-WEIGHT: normal; BORDER-RIGHT: #d3d3d3 1px solid
+}
+.ui-widget-content .ui-state-hover {
+}
+.ui-widget-content .ui-state-active {
+}
+/*
+
+
+
+
+*/

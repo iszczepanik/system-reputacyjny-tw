@@ -1,0 +1,357 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: normal 10pt Arial,Helvetica,sans-serif;
+	/*background: #EFEFEF;*/
+}
+
+h1
+{
+	text-transform:capitalize;
+	font-size: 22pt;
+	line-height: 16pt;
+	font-family: 'Trebuchet MS';
+	letter-spacing: -1.5px;
+	/*padding-top: 15px;*/
+	margin: 0;
+	padding: 0;
+	
+	/*position: absolute;
+	top: 28px;*/
+	margin-bottom: 30px;
+}
+
+h2
+{
+	text-transform:capitalize;
+	font-size: 18pt;
+	line-height: 13pt;
+	font-family: 'Trebuchet MS';
+	letter-spacing: -1.5px;
+	/*padding-top: 15px;*/
+	margin: 0;
+	padding: 0;
+}
+
+#page
+{
+	margin-top: 0px;
+	margin-bottom: 5px;
+	background: white;
+	/*border: 1px solid #C9E0ED;*/
+}
+
+#header
+{
+	margin: 0;
+	padding: 0;
+	/*border-top: 3px solid #C9E0ED;*/
+	/*border-bottom: 1px solid #C9E0ED;*/
+}
+
+#content
+{
+    /*padding: 20px;*/
+}
+
+#sidebar
+{
+	padding: 20px 20px 20px 0;
+}
+
+#footer
+{
+font-size: 8pt;
+border-top: 1px solid #C9E0ED;
+text-align: right;
+margin-top: 120px;
+	/*padding: 10px;
+	margin: 10px 20px;
+	font-size: 0.8em;
+	text-align: center;
+	border-top: 1px solid #C9E0ED;*/
+	/*left: 0px; top: 5px; width: 70px; position: fixed; z-index: 1000;*/
+}
+
+#logo
+{
+	/*padding: 10px 20px;
+	font-size: 200%;*/
+	text-transform:capitalize;
+	font-size: 26pt;
+	line-height: 20pt;
+	font-family: 'Trebuchet MS';
+	letter-spacing: -1.5px;
+	padding:0;
+	margin:0;
+	/*margin-bottom: 35px;*/
+	
+	
+	float: left;
+}
+
+#mainmenu
+{
+	/*background:white url(bg.gif) repeat-x left top;
+	text-align: right;
+	float: right;
+	width: 760px;*/	
+text-align: right;
+border-bottom: 1px solid #C9E0ED;
+}
+
+#mainmenu ul
+{
+	padding:2px 0px 2px 0px;
+	margin:0px;
+}
+
+#mainmenu ul li
+{
+	display: inline;
+	/*border: 1px solid black;*/
+}
+
+#mainmenu ul li a
+{
+color: #4673a7;
+	font-size:12px;
+	line-height: 22px;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 8px;
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+	color: #6399cd;
+	background-color:#EFF4FA;
+	text-decoration:none;
+}
+
+.errorSummary
+{
+	border: 2px solid #C00;
+	padding: 7px 7px 12px 7px;
+	margin: 0 0 20px 0;
+	background: #FEE;
+	font-size: 0.9em;
+}
+
+div.flash-error, div.flash-notice, div.flash-success
+{
+	padding:.8em;
+	margin-bottom:1em;
+	border:2px solid #ddd;
+}
+
+div.flash-error
+{
+	background:#FBE3E4;
+	color:#8a1f11;
+	border-color:#FBC2C4;
+}
+
+div.flash-notice
+{
+	background:#FFF6BF;
+	color:#514721;
+	border-color:#FFD324;
+}
+
+div.flash-success
+{
+	background:#E6EFC2;
+	color:#264409;
+	border-color:#C6D880;
+}
+
+div.flash-error a
+{
+	color:#8a1f11;
+}
+
+div.flash-notice a
+{
+	color:#514721;
+}
+
+div.flash-success a
+{
+	color:#264409;
+}
+
+div.form .rememberMe label
+{
+	display: inline;
+}
+
+div.view
+{
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #C9E0ED;
+}
+
+div.breadcrumbs
+{
+	font-size: 0.9em;
+	padding: 5px 0;
+}
+
+div.breadcrumbs span
+{
+	font-weight: bold;
+}
+
+div.search-form
+{
+	padding: 10px;
+	margin: 10px 0;
+	background: #eee;
+}
+
+.portlet
+{
+
+}
+
+.portlet-decoration
+{
+	padding: 3px 8px;
+	background: #B7D6E7;
+	border-left: 5px solid #6FACCF;
+}
+
+.portlet-title
+{
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	color: #298dcd;
+}
+
+.portlet-content
+{
+	/*font-size:0.9em;
+	margin: 0 0 15px 0;
+	padding: 5px 8px;
+	background:#EFFDFF;*/
+	float: right;
+	/*position:absolute;*/
+}
+.portlet-content ul
+{
+	
+	
+	/*list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin: 0;
+	padding: 0;*/
+}
+
+.portlet-content ul li
+{
+	/*padding: 2px 0 4px 0px;*/
+	display: inline;
+}
+
+.operations
+{
+	padding:5px 0px 5px 0px;
+	margin:0px;
+}
+
+.operations li
+{
+	display: inline;
+}
+
+.operations li a
+{
+	
+	color: #4673a7;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 8px;
+}
+
+.operations li a:visited
+{
+	
+}
+
+.operations li a:hover
+{
+	background: #80CFFF;
+}
+
+.time
+{
+	color: #000;
+}
+
+.xAxisLabel
+{
+border: 1px solid black; 
+padding-top: 4px;
+
+}
+
+#table_threads
+{
+
+}
+
+#table_threads tr td
+{
+	text-align: center;
+}
+#table_threads tr td.td_thredno div
+{
+	width: 100px;
+}
+
+#table_threads tr td.td_importance
+{
+	padding-left: 15px;
+}
+
+#table_threads tr td.td_content
+{
+	text-align: left;
+}
+#table_threads tr td.td_content div
+{
+	width: 720px;
+}
+#table_threads tr td.td_content textarea
+{
+	width: 700px; height: 120px;
+}
+
+.compromise
+{
+	color: #a5e243;
+}
+
+.nocompromise
+{
+	color: red;
+}
+.b
+{
+font-weight: bold;
+color: black;
+}
+/*.grid-view table.items tr:hover
+{
+	cursor: pointer;
+	background-color: inherit;
+}*/
+

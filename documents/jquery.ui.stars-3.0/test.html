@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Star Rating widget Demo2 Page</title>
+	
+
+	<!-- demo page js -->
+	<script type="text/javascript" src="jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="jquery-ui-1.8.16.custom.min.js"></script>
+
+	<script type="text/javascript" src="jquery.ui.stars.js?v=3.0.1b44"></script>
+	<!-- Star Rating widget stuff here... -->
+	<!--
+	<link rel="stylesheet" type="text/css" href="jquery.ui.stars.css?v=3.0.1b44"/>
+	<link rel="stylesheet" type="text/css" href="jquery-ui-1.8.16.custom.css"/>-->
+	<script type="text/javascript">
+		$(function(){
+			
+		//stars
+		var $stars2 = $("#importance_stars");
+
+		$stars2.children().not("select").hide();
+
+		$stars2.stars({
+			inputType: "select",
+			//captionEl: $("#hover_ocv2"),
+			//callback: function(ui, type, value, event){
+			//	alert("callback: {\n type: " + type + ",\n value: " + value + ",\n event: " + event.type + "\n}");
+			//},
+			cancelShow: false
+		});
+
+		$( "#datepicker" ).datepicker();
+		
+		});
+	</script>
+
+</head>
+
+<body>
+
+	<div id="importance_stars" >
+		<select name="selrate" style="width: 120px">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4" selected="selected" >4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+		</select>
+	</div>
+
+
+<div class="demo">
+
+<p>Date: <input type="text" id="datepicker"></p>
+
+</div><!-- End demo -->
+
+
+
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,17 @@
+3 wartoœci w parze:
+
+w1 - importance1 = 6 , 
+w2 (odp.) -  importance2 = 2 , type=1 (positive)
+
+ocena = type * (importance1 / 7) * (importance2 / 7)
+
+ta ocenia wzmacnia/os³abia ceche asertywnosci dla nadawcy w1
+ta ocenia wzmacnia/os³abia ceche kooperatywnosci dla odpowiadajacego w2 (odp.)
+
+jeszcze przechowywaæ liczbe skladowych (do sredniej)
+
+wrzucic i zalozyc negocjacje
+prezentacja danych z testu
+rejestracja w grupie
+algorytm - implementacja
+listing userow z profilem

@@ -1,0 +1,22 @@
+czy mozna nie odpowiadac na watek, TAK - waga 0
+czy mozna tworzyc nowe w dowolnym momencie, TAK
+czy nie powinny byæ widoczne wszystkie wiadomosci/komunikaty z danego w¹tku, 
+w¹tek mo¿e ci¹gn¹æ siê dowolnie d³ugo W SUMIE TAK, ale nie pokazujemy historii, liczy siê para w¹tkow
+na jakiej podstawie potem liczymy coœ tam, wzór
+upewnienie siê co do modelu
+zakoñczenie negocjacji - akceptacja otrzymanej oferty, czy wtedy te¿ wysy³a siê jakieœ komunikaty w watkach? nie, nie? NIE
+
+INSERT INTO `system_reputacyjny2`.`thr` (
+
+`THR_ID` ,
+`THR_OFR_ID` ,
+`THR_RESP_THR_ID` ,
+`THR_CONTENT` ,
+`THR_IMPORTANCE` ,
+`THR_TYPE` 
+)
+VALUES (
+NULL , '1', 'null', 'to jest tresc', '5', '0'
+), (
+NULL , '1', 'null', 'to tez jest tresc', '3', '0'
+) 

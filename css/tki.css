@@ -1,0 +1,82 @@
+.b{ font-weight: bold; color: #000; }
+#tki_table
+{
+	border-collapse: collapse;
+	/*border: 1px solid grey;*/
+	font-size: 9pt;
+	/*width: 95%;*/
+}
+#tki_table tr.scale_row td
+{
+padding: 0;
+border-top:0;
+}
+#tki_table tr td
+{
+	padding: 0;
+	border: 1px solid grey;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: right;
+}
+.value_
+{
+	/* background: #effdff;*/
+	background: #eee;
+}
+.name_Competing, .name_Avoiding, .name_Compromising, .name_Collaborating, .name_Accommodating, .name_cooperativness, .name_assertivness
+{
+	padding: 5px 0;
+
+}
+.name_Accommodating{	background-color: #004bf7;}
+.name_Competing{	background-color: #faaa14;}
+.name_Avoiding{	background-color: #c323fb;}
+.name_Compromising{	background-color: #fa114b;}
+.name_Collaborating{	background-color: #fa6e04;}
+
+h3
+{
+	text-transform: uppercase;
+	font-size: 9pt;
+	font-weight: bold;
+}
+.h3_Accommodating{	color: #004bf7;}
+.h3_Competing{	color: #faaa14;}
+.h3_Avoiding{	color: #c323fb;}
+.h3_Compromising{	color: #fa114b;}
+.h3_Collaborating{	color: #fa6e04;}
+.h3_Assertivness{	color: #ce0808;}
+.h3_Cooperativness{	color: #6ac239;}
+
+#tki_table tr th
+{
+	padding: 0;
+	border: 1px solid grey;
+	text-align: center;
+	border: 0;
+}
+.header_div_mode
+{
+	width: 200px;
+}
+.scale_div , .scale_div_mode
+{
+	width: 110px;
+	color: black;
+	font-weight: normal;
+	/*font-size: 7.5pt;
+	font-family: Verdana;
+	line-height: 8pt;
+	*/
+	/*border: 1px solid blue;*/
+	text-align: left;
+}
+.scale_div_mode
+{
+	/*width: 160px;*/
+}
+
+.name_assertivness{	background-color: #ce0808;}
+.name_cooperativness{	background-color:  #6ac239;}
