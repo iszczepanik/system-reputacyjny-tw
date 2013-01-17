@@ -40,6 +40,12 @@
 		<?php echo $form->textField($model,'CRT_MAX'); ?>
 		<?php echo $form->error($model,'CRT_MAX'); ?></td>
 	</tr>
+	<tr class='even'><th>
+		<?php echo $form->labelEx($model,'CRT_VALUES'); ?></th>
+		<td>
+		<?php echo $form->textField($model,'CRT_VALUES'); ?>
+		<?php echo $form->error($model,'CRT_VALUES'); ?></td>
+	</tr>
 	</table>
 
 	<div class="row buttons">

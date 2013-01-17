@@ -1,16 +1,14 @@
 <?php
 
 /**
- * This is the model class for table "crt".
+ * This is the model class for table "CRT".
  *
- * The followings are the available columns in table 'crt':
+ * The followings are the available columns in table 'CRT':
  * @property integer $CRT_ID
  * @property integer $CRT_CAS_ID
  * @property string $CRT_NAME
- *
- * The followings are the available model relations:
- * @property Cas $cRTCAS
- * @property Det[] $dets
+ * @property integer $CRT_MAX
+ * @property integer $CRT_MIN
  */
 class Criteria extends CActiveRecord
 {
@@ -39,12 +37,11 @@ class Criteria extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('CRT_CAS_ID, CRT_NAME', 'required'),
-			array('CRT_CAS_ID', 'numerical', 'integerOnly'=>true),
-			array('CRT_NAME', 'safe'),
+			array('CRT_NAME, CRT_MAX, CRT_MIN', 'required'),
+			array('CRT_CAS_ID, CRT_MAX, CRT_MIN', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('CRT_ID, CRT_CAS_ID, CRT_NAME', 'safe', 'on'=>'search'),
+			array('CRT_ID, CRT_CAS_ID, CRT_NAME, CRT_MAX, CRT_MIN, CRT_VALUES', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,6 +67,9 @@ class Criteria extends CActiveRecord
 			'CRT_ID' => 'Criterion ID',
 			'CRT_CAS_ID' => 'Criterion Case',
 			'CRT_NAME' => 'Criterion Name',
+			'CRT_MAX' => 'Max Value',
+			'CRT_MIN' => 'Min Value',
+			'CRT_VALUES' => 'Values',
 		);
 	}
 
@@ -87,6 +87,9 @@ class Criteria extends CActiveRecord
 		$criteria->compare('CRT_ID',$this->CRT_ID);
 		$criteria->compare('CRT_CAS_ID',$this->CRT_CAS_ID);
 		$criteria->compare('CRT_NAME',$this->CRT_NAME,true);
+		$criteria->compare('CRT_MAX',$this->CRT_MAX);
+		$criteria->compare('CRT_MIN',$this->CRT_MIN);
+		$criteria->compare('CRT_VALUES',$this->CRT_VALUES);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

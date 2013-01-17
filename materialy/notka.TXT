@@ -1,0 +1,11 @@
+1.
+Message box do ofert – sprawdziæ. Wysy³anie Message po zakoñczeniu negocjacji.
+ 
+2.
+Manage prefferences – mo¿liwoœæ edycji w trakcie negocjacji, podgl¹d wykresu ‘na ¿ywo’
+ 
+3.
+Typ kryterium z dopuszczalnymi opcjami , dodatkowa kolumna z wartoœciami po przecinku, drop down. Do tego uk³adanie preferencji za pomoc¹ pude³ek,
+ 
+4.
+Wykres przebiegu negocjacji powinien wizualizowaæ kompromis w postaci zbiegu do punktu np. gwiazdki, ten który akceptuje – linia przerywana.

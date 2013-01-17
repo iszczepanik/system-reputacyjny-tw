@@ -1,14 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "CRT".
+ * This is the model class for table "crt".
  *
- * The followings are the available columns in table 'CRT':
+ * The followings are the available columns in table 'crt':
  * @property integer $CRT_ID
  * @property integer $CRT_CAS_ID
  * @property string $CRT_NAME
  * @property integer $CRT_MAX
  * @property integer $CRT_MIN
+ * @property string $CRT_VALUES
+ *
+ * The followings are the available model relations:
+ * @property Cas $cRTCAS
+ * @property Det[] $dets
+ * @property Wgh[] $wghs
  */
 class Criteria extends CActiveRecord
 {
@@ -39,9 +45,10 @@ class Criteria extends CActiveRecord
 		return array(
 			array('CRT_NAME, CRT_MAX, CRT_MIN', 'required'),
 			array('CRT_CAS_ID, CRT_MAX, CRT_MIN', 'numerical', 'integerOnly'=>true),
+			array('CRT_VALUES', 'length', 'max'=>256),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('CRT_ID, CRT_CAS_ID, CRT_NAME, CRT_MAX, CRT_MIN', 'safe', 'on'=>'search'),
+			array('CRT_ID, CRT_CAS_ID, CRT_NAME, CRT_MAX, CRT_MIN, CRT_VALUES', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,6 +62,7 @@ class Criteria extends CActiveRecord
 		return array(
 			'Criteria_case' => array(self::BELONGS_TO, 'NegotiationCase', 'CRT_CAS_ID'),
 			'Offer_details' => array(self::HAS_MANY, 'Detail', 'DET_CRT_ID'),
+			//'wghs' => array(self::HAS_MANY, 'Wgh', 'WGH_CRT_ID'),
 		);
 	}
 
@@ -69,6 +77,7 @@ class Criteria extends CActiveRecord
 			'CRT_NAME' => 'Criterion Name',
 			'CRT_MAX' => 'Max Value',
 			'CRT_MIN' => 'Min Value',
+			'CRT_VALUES' => 'Values',
 		);
 	}
 
@@ -88,6 +97,7 @@ class Criteria extends CActiveRecord
 		$criteria->compare('CRT_NAME',$this->CRT_NAME,true);
 		$criteria->compare('CRT_MAX',$this->CRT_MAX);
 		$criteria->compare('CRT_MIN',$this->CRT_MIN);
+		$criteria->compare('CRT_VALUES',$this->CRT_VALUES,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

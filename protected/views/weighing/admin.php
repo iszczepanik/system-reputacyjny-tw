@@ -53,7 +53,7 @@ foreach ($unsetCrtWgh as $key=>$cas)
 	'id'=>'weighing-grid',
 	'dataProvider'=>$model->search(),
 	'selectableRows'=>1,
-	'selectionChanged'=>"function(id){ location.href = '".$this->createUrl('weighing/chart')."&id='+$.fn.yiiGridView.getSelection(id); }",
+	'selectionChanged'=>"function(id){ location.href = '".$this->createUrl('weighing/update')."&id='+$.fn.yiiGridView.getSelection(id); }",
 	//'filter'=>$model,
 	'columns'=>array(
 		//'WGH_ID',

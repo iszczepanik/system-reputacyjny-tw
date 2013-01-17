@@ -31,7 +31,7 @@ class WeighingController extends Controller
 				'users'=>array('admin'),
 			),
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('admin','chart','create'),
+				'actions'=>array('admin','chart','create','update'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -68,8 +68,6 @@ class WeighingController extends Controller
 	 */
 	public function actionCreate()
 	{
-		//$model=new Weighing;
-		//$model->WGH_CRT_ID = $_GET['cas_id'];
 		$model->WGH_USR_ID = Yii::app()->user->id;
 		$case = NegotiationCase::model()->findByPk($_GET['cas_id']);
 		
@@ -86,31 +84,21 @@ class WeighingController extends Controller
 			
 			//var_dump($weight_sum);
 			
-			//if (false)
 			foreach($case->Criterias as $key=>$criterion)
 			{
 				//var_dump($criterion);
 				//zebranie ustawionych atrybutów
 				$model = new Weighing;
 				$model->attributes = $_POST['Weighing_'.$criterion->CRT_ID];
+				$model->WGH_IMPORTANCE = $model->WGH_WEIGHT;
 				//przypisanie atrybutów wynikających z kontekstu
 				$model->WGH_CRT_ID = $criterion->CRT_ID;
 				$model->WGH_USR_ID = Yii::app()->user->id;
-				$model->WGH_VALUE = 0; //nie używane
-				//wyznaczenie pis i nis
-				$model->WGH_PIS = $model->WGH_PREF == "min" ? $criterion->CRT_MIN : $criterion->CRT_MAX;
-				$model->WGH_NIS = $model->WGH_PREF == "min" ? $criterion->CRT_MAX : $criterion->CRT_MIN;
-				//obliczenie wagi
-				$model->WGH_WEIGHT = $model->WGH_WEIGHT / $weight_sum;
-				//obliczenie P
-				$middle_weight = $_POST['Weighing_'.$criterion->CRT_ID]['WGH_AVG'];
-				//var_dump($middle_weight);
-				$middle_weight = 1 - ($middle_weight / 100);
-				//var_dump($middle_weight);
-				$model->WGH_P = log($middle_weight, 0.5);
-				//var_dump($model->WGH_P);
+
+				$model->CalculateStuff($weight_sum, $criterion);
+
 				$model->save();
-					//var_dump($model);
+				//var_dump($model);
 			}
 			
 			$this->actionAdmin();
@@ -123,14 +111,10 @@ class WeighingController extends Controller
 			$model = new Weighing;
 			$model->WGH_CRT_ID = $criterion->CRT_ID;
 			$model->WGH_USR_ID = Yii::app()->user->id;
+			$model->WGH_VALUES = $criterion->CRT_VALUES;
 			
 			$models[$key] = $model;
 		}
-		//var_dump($models);
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		
 
 		$uri = Yii::app()->request->baseUrl."/assets/3bb6b5ce/detailview/styles.css";
 		Yii::app()->clientScript->registerCssFile($uri);
@@ -145,71 +129,48 @@ class WeighingController extends Controller
 		));
 	}
 	
-	public function normalize($x, $xNis, $xPis)
+	public function actionUpdate($id)
 	{
-		return ($x - $xNis) / ($xPis - $xNis);
-	}
-	
-	public function actionChart($id)
-	{
-		$wgh = Weighing::model()->findByPk($id);
-		$crt = $wgh->weighing_criterion;
-	
+		$model=$this->loadModel($id);
+		$crt_id = $model->WGH_CRT_ID;
+		
+		//var_dump($_POST);
+		
+		if(isset($_POST['yt0']) || isset($_POST['yt1']))
+		{
+			$model->attributes = $_POST['Weighing_'.$crt_id];
+			$weight_sum = $model->GetWeightSumOfOther() + $model->WGH_IMPORTANCE;
+			$model->WGH_IMPORTANCE = $model->WGH_WEIGHT;
+			$model->CalculateStuff($weight_sum, $model->weighing_criterion);
+			if($model->save() && isset($_POST['yt0']))
+			{
+				$this->actionAdmin();
+				return;
+			}
+		}
+
+		$uri = Yii::app()->request->baseUrl."/assets/3bb6b5ce/detailview/styles.css";
+		Yii::app()->clientScript->registerCssFile($uri);
+		$uri = Yii::app()->request->baseUrl."/assets/3bb6b5ce/gridview/styles.css";
+		Yii::app()->clientScript->registerCssFile($uri);
+		
 		$uri = "http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js";
 		Yii::app()->clientScript->registerScriptFile($uri);
 		$uri = Yii::app()->request->baseUrl."/js/highcharts.js";
 		Yii::app()->clientScript->registerScriptFile($uri);
 		$uri = Yii::app()->request->baseUrl."/js/modules/exporting.js";
 		Yii::app()->clientScript->registerScriptFile($uri);
-
-		//najpierw jakie mamy min i max?
-		$min = $crt->CRT_MIN;
-		$max = $crt->CRT_MAX;
-		//wyznaczamy punkty pośrednie
-		$avg = ($min + $max) / 2;
-		$avg_min = ($min + $avg) / 2; 
-		$avg_max = ($avg + $max) / 2;
-		//to jeszcze 4
-		$p1 = ($min + $avg_min) / 2;
-		$p3 = ($avg_min + $avg) / 2;
-		$p5 = ($avg + $avg_max) / 2;
-		$p7= ($avg_max + $max) / 2;
 		
-		//jakie mamy pis i nis?
-		$nis = $wgh->WGH_NIS;
-		$pis = $wgh->WGH_PIS;
+		$this->includeRatingFiles();
 		
-		//obliczamy
-		$min_val = 1 - pow((1 - $this->normalize($min, $nis, $pis)),$wgh->WGH_P);
-		$max_val = 1 - pow((1 - $this->normalize($max, $nis, $pis)),$wgh->WGH_P);
-		$avg_val = 1 - pow((1 - $this->normalize($avg, $nis, $pis)),$wgh->WGH_P);
-		$avg_min_val = 1 - pow((1 - $this->normalize($avg_min, $nis, $pis)),$wgh->WGH_P);
-		$avg_max_val = 1 - pow((1 - $this->normalize($avg_max, $nis, $pis)),$wgh->WGH_P);
-		$p1_val = 1 - pow((1 - $this->normalize($p1, $nis, $pis)),$wgh->WGH_P);
-		$p3_val = 1 - pow((1 - $this->normalize($p3, $nis, $pis)),$wgh->WGH_P);
-		$p5_val = 1 - pow((1 - $this->normalize($p5, $nis, $pis)),$wgh->WGH_P);
-		$p7_val = 1 - pow((1 - $this->normalize($p7, $nis, $pis)),$wgh->WGH_P);
-		
-		$data = "[";
-		$data .= "[".$min.",".$min_val."],";
-		$data .= "[".$p1.",".$p1_val."],";
-		$data .= "[".$avg_min.",".$avg_min_val."],";
-		$data .= "[".$p3.",".$p3_val."],";
-		$data .= "[".$avg.",".$avg_val."],";
-		$data .= "[".$p5.",".$p5_val."],";
-		$data .= "[".$avg_max.",".$avg_max_val."],";
-		$data .= "[".$p7.",".$p7_val."],";
-		$data .= "[".$max.",".$max_val."]";
-		$data .= "]";
-
-		$this->render('chart',array(
-			'id'=>$id,
-			'name'=>$crt->CRT_NAME,
-			'min'=>$min,
-			'max'=>$max,
-			'data'=>$data,
+		$this->render('update',array(
+			'model'=>$model,
 		));
+	}
 	
+	public function normalize($x, $xNis, $xPis)
+	{
+		return ($x - $xNis) / ($xPis - $xNis);
 	}
 
 	public function hasCriteriaToWeight()

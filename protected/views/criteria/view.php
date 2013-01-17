@@ -23,5 +23,6 @@ $this->menu=array(
 		'CRT_NAME',
 		'CRT_MIN',
 		'CRT_MAX',
+		'CRT_VALUES',
 	),
 )); ?>

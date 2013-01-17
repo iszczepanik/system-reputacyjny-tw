@@ -3,7 +3,7 @@
 
 				$(".slider").each(function() {
 					$(this).slider({
-						value:50,
+						value: <? echo $model->WGH_IMPORTANCE; ?>,
 						min: 1,
 						max: 100,
 						step: 1,
@@ -16,27 +16,28 @@
 
 				$(".slider_score").each(function() {
 					$(this).slider({
-						value:50,
+						value: <? echo $model->WGH_MIDLESCORE; ?>,
 						min: 10,
 						max: 90,
 						step: 1,
 						slide: function( event, ui ) {
 							//alert(sliderValues[ui.value]);
-							//$($(this).attr("id")+"_WGH_WEIGHT").val(ui.value);
 							$("#"+$(this).attr("id")+"_WGH_AVG").val(ui.value);
 						}
 					});
-					//$("[name="+"THR_"+$(this).attr("id")+"]").filter("[value=4]").attr("checked","checked");
 				});
 				
 		});
 		</script>
+
 <?php
 
 $this->menu=array(
 	array('label'=>'Manage Preferences', 'url'=>array('admin')),
 );
 ?>
+
+<?php echo $this->renderPartial('_chart', array('model'=>$model)); ?>
 
 <h1>Setting Preferences</h1>
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -54,16 +55,13 @@ $this->menu=array(
 	<tr/>
 	</thead>
 
-<? foreach($models as $key=>$model): ?>
+<? //foreach($models as $key=>$model): ?>
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
-<?endforeach;?>
+<? //endforeach;?>
 
 </table>
 </div>
 
-<style>
-
-</style>
 <script>
 $(function() {
 	$( ".sortable" ).sortable({
@@ -88,6 +86,7 @@ $(function() {
 });
 </script>
 
-<?php echo CHtml::submitButton('Save'); ?>
+<?php echo CHtml::submitButton('Save & Go back to preferences'); ?>
+<?php echo CHtml::submitButton('Save & Refresh graph'); ?>
 
 <?php $this->endWidget(); ?>
