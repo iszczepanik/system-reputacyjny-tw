@@ -413,10 +413,18 @@ class OfferController extends Controller
 			$wgh = Weighing::model()->findBySql("SELECT * FROM wgh where WGH_USR_ID = ".Yii::app()->user->id." and WGH_CRT_ID = ".$crt->CRT_ID);
 			if ($wgh == null)
 				return null;
-			//if ($debug) var_dump($wgh);
-			
+				
+			//Sprawdzam czy kryterium jest liczbowe czy wartoœciowe
+			if (!$wgh->WGH_VALUES == "")
+			{
+				//Jeœli tak, to trzeba wyznaczyæ wartoœæ
+				$detValue = $wgh->GetValueOf($det->DET_VALUE);
+			}
+			else
+				$detValue = $det->DET_VALUE;
+
 			//liczymy normaln¹
-			$n = $this->normalize($det->DET_VALUE, $wgh->WGH_NIS, $wgh->WGH_PIS);
+			$n = $this->normalize($detValue, $wgh->WGH_NIS, $wgh->WGH_PIS);
 			if ($debug) echo "normalna = ".$n."<br />";
 			
 			//liczymy odleglosc
@@ -438,6 +446,7 @@ class OfferController extends Controller
 		
 		//I liczymy Score
 		$SG = $Dnis / ($Dnis + $Dpis);
+		if ($debug) echo "Score = ".$SG."<br />";
 		
 		return $SG;
 	}
@@ -673,7 +682,6 @@ class OfferController extends Controller
 	
 	public function actionRespond()
 	{
-		//echo "action Respond";
 		$negotiation = $this->CanUserSeeTheseOffers();
 		$isActive = $this->IsThisNegotiationActive($negotiation, true);
 		$respondeeOffer = $this->CanUserRespond($negotiation, true, null);

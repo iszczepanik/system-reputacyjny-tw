@@ -158,6 +158,18 @@ class Weighing extends CActiveRecord
 		return null;
 	}
 	
+	public function GetValueOf($value)
+	{
+		if (!$this->WGH_VALUES == "")
+		{
+			$values = array_filter(explode(",", $this->WGH_VALUES));
+			foreach ($values as $key=>$v)
+				if ($v == $value)
+					return $key+1;
+		}
+		return null;
+	}
+	
 	public function Normalize($x, $xNis, $xPis)
 	{
 		return ($x - $xNis) / ($xPis - $xNis);

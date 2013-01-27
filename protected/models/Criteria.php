@@ -80,6 +80,16 @@ class Criteria extends CActiveRecord
 			'CRT_VALUES' => 'Values',
 		);
 	}
+	
+	public function GetValues()
+	{
+		if (!$this->CRT_VALUES == "")
+		{
+			$values = array_filter(explode(",", $this->CRT_VALUES));
+			return $values;
+		}
+		return null;
+	}
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

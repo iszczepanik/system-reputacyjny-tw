@@ -174,15 +174,27 @@ function AddControls()
 	<br />
 	<h2>Offer details</h2><table class="detail-view" >
 	<?
-	foreach($CaseCriterias as $key=>$caseCriteria){
-	  ?>
+	foreach($CaseCriterias as $key=>$caseCriteria):
+		if ($caseCriteria->CRT_VALUES == null): ?>
 		<tr class='<? echo (($key+1) % 2 == 0 ? "even":"odd"); ?>' >
-		<th><!--<label for="DET_VALUE_<? echo $caseCriteria->CRT_ID."_$key"; ?>">-->
-		<? echo $caseCriteria->CRT_NAME."<br />(".$caseCriteria->CRT_MIN."-".$caseCriteria->CRT_MAX.")"; ?><!--</label>--></th>
+		<th><? echo $caseCriteria->CRT_NAME."<br />(".$caseCriteria->CRT_MIN."-".$caseCriteria->CRT_MAX.")"; ?></th>
 		<td><input name="DET_VALUE_<? echo $caseCriteria->CRT_ID."_$key"; ?>" id="DET_VALUE_<? echo $caseCriteria->CRT_ID."_$key"; ?>" type="text" /></td>
 		</tr>
-	  <?
-	}
+		<? else: ?>
+		<tr class='<? echo (($key+1) % 2 == 0 ? "even":"odd"); ?>' >
+		<th><? echo $caseCriteria->CRT_NAME; ?></th>
+		<td>
+			<select name="DET_VALUE_<? echo $caseCriteria->CRT_ID."_$key"; ?>" id="DET_VALUE_<? echo $caseCriteria->CRT_ID."_$key"; ?>" >
+			<? $values = $caseCriteria->Values;
+			foreach ($values as $value): ?>
+				<option value="<? echo $value; ?>"><? echo $value; ?></option>
+			<? endforeach; ?>
+			</select>
+		</td>
+		</tr>
+		<?
+		endif;
+	endforeach;
 	?></table><?
 
 	?>
