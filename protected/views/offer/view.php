@@ -58,7 +58,7 @@ if ($canRespond){
 
 	<table class="detail-view" >
 	<tr class="even" ><th><?php echo $form->labelEx($model,'OFR_SCORE_REC'); ?></th>
-	<td><?php echo $form->textField($model,'OFR_SCORE_REC'); ?>
+	<td><?php echo $form->textField($model,'OFR_SCORE_REC'); ?> From 0 to 1, i.e.: 0.12
 	<?php echo $form->error($model,'OFR_SCORE_REC'); ?></td></tr></table>
 	<?php echo $form->hiddenField($model,'OFR_ID'); ?>
 

@@ -4283,3 +4283,31 @@ in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
 in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
 in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
 in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2013/01/27 16:21:18 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2013/01/27 16:22:04 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2013/01/27 16:27:12 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2013/01/27 16:27:59 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2013/01/27 16:28:45 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2013/01/27 16:34:57 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
+2013/01/27 16:40:56 [warning] [application] Failed to set unsafe attribute "OFR_ID" of "Offer".
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (46)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\protected\controllers\OfferController.php (102)
+in C:\Program Files\wamp\www\system-reputacyjny-tw\index.php (13)
